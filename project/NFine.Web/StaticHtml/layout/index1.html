@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>表单构建器</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="../../Scripts/jbox/Blue/jbox.css" rel="stylesheet" type="text/css" />
+    <style>
+        .droppable-active
+        {
+            background-color: #ffe !important;
+        }
+        .tools a
+        {
+            cursor: pointer;
+            font-size: 80%;
+        }
+        .form-body .col-md-6, .form-body .col-md-12
+        {
+            min-height: 400px;
+        }
+        .draggable
+        {
+            cursor: move;
+        }
+        section hgroup
+        {
+            text-indent: 2px;
+            background: #fff;
+            border-bottom: 1px solid #e1e1e1;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            color: #6a6f73;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+        }
+        section hgroup a
+        {
+            color: #6a6f73;
+            font-size: 14px;
+            font-family: '微软雅黑';
+        }
+        section hgroup a
+        {
+            color: #6a6f73;
+        }
+        a
+        {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <section>
+             <hgroup><span class="icon-home"></span>当前位置：<a href="#">业务建模</a> 》<a href="#">表单管理</a></hgroup>
+    <div id="wrapper">
+        <div id="page-wrapper" class="gray-bg dashbard-1" style="margin-top:16px">
+            <div class="wrapper wrapper-content">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="ibox float-e-margins">
+                            <!--                            <div class="ibox-title">
+                                <h5>
+                                    元素</h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a><a class="dropdown-toggle"
+                                        data-toggle="dropdown" href="javascript:void(0)"><i class="fa fa-wrench"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li><a href="javascript:void(0)">选项1</a> </li>
+                                        <li><a href="javascript:void(0)">选项2</a> </li>
+                                    </ul>
+                                    <a class="close-link"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>-->
+                            <div class="ibox-content" style="border:1px solid #bce8f1;border-radius:4px;margin-top:20px; height:585px;">
+                                <div class="alert alert-info">
+                                    拖拽左侧的表单元素到右侧区域，即可生成相应的HTML代码，表单代码，轻松搞定！
+                                </div>
+                                <form role="form" class="form-horizontal m-t">
+                                <div class="form-group draggable">
+                                    <label class="col-sm-3 control-label">
+                                        文本框：</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" placeholder="请输入文本">
+                                    </div>
+                                </div>
+                                <div class="form-group draggable">
+                                    <label class="col-sm-3 control-label">
+                                        密码框：</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" placeholder="请输入密码">
+                                    </div>
+                                </div>
+                                <div class="form-group draggable">
+                                    <label class="col-sm-3 control-label">
+                                        下拉列表：</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" datatype='select'>
+                                            <option>选项 1</option>
+                                            <option>选项 2</option>
+                                            <option>选项 3</option>
+                                            <option>选项 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group draggable">
+                                    <label class="col-sm-3 control-label">
+                                        文件域：</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group draggable">
+                                    <label class="col-sm-3 control-label">
+                                        纯文本：</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static">
+                                            这里是纯文字信息</p>
+                                    </div>
+                                </div>
+                                <div class="form-group draggable">
+                                    <label class="col-sm-3 control-label">
+                                        单选框：
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <label class="radio-inline">
+                                            <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios">选项1</label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios">选项2</label>
+                                    </div>
+                                </div>
+                                <div class="form-group draggable">
+                                    <label class="col-sm-3 control-label">
+                                        复选框：</label>
+                                    <div class="col-sm-9">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="option1" id="inlineCheckbox1">选项1</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="option2" id="inlineCheckbox2">选项2</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="option3" id="inlineCheckbox3">选项3</label>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed">
+                                </div>
+                                <div class="form-group draggable">
+                                    <div class="col-sm-12 col-sm-offset-3">
+                                        <button class="btn btn-primary" type="submit">
+                                            保存内容</button>
+                                        <button class="btn btn-white" type="submit">
+                                            取消</button>
+                                    </div>
+                                </div>
+                                </form>
+                                <div class="clearfix">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="ibox float-e-margins">
+<!--                                                        <div class="ibox-title">
+                                <h5>
+                                    拖拽左侧表单元素到此区域</h5>
+                                <div class="ibox-tools">
+                                    请选择显示的列数：
+                                    <select id="n-columns">
+                                        <option value="1">显示1列</option>
+                                        <option value="2">显示2列</option>
+                                    </select>
+                                </div>
+                            </div>-->
+                            <div class="ibox-content" style="border:1px solid #bce8f1;border-radius:4px;margin-top:20px;">
+                                <div class="row form-body form-horizontal m-t">
+                                    <div class="col-md-12 droppable sortable">
+                                    </div>
+                                    <div class="col-md-6 droppable sortable" style="display: none;">
+                                    </div>
+                                    <div class="col-md-6 droppable sortable" style="display: none;">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed">
+                                </div>
+                                <div class="alert alert-info">
+                                  <div class="ibox-tools">
+                                    请选择显示的列数：
+                                    <select id="n-columns">
+                                        <option value="1">显示1列</option>
+                                        <option value="2">显示2列</option>
+                                    </select>
+                                    </div>
+                                  <button type="submit" class="btn btn-warning" data-clipboard-text="testing" id="copy-to-clipboard">
+                                    保存表单</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;" id="attSetDiv">
+        <div class="ibox-content">
+            <form class="form-horizontal m-t" id="commentForm" novalidate="novalidate">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    属性名称：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" required="" id="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    属性字段：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" required="" id="field">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    是否必填项：
+                </label>
+                <div class="col-sm-8">
+                    <!--<input type="text" class="form-control" required="" id="required">-->
+                    <select id="required" class="form-control">
+                        <option value="1" selected="selected">是</option>
+                        <option value="0">否</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    顺序：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" required="" id="sort">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    备注：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" required="" id="remark">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-3">
+                    <button class="btn btn-primary" type="submit">
+                        提交</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div style="display: none;" id="Div1">
+        <div class="ibox-content">
+            <form class="form-horizontal m-t" id="Form1" novalidate="novalidate">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    表单名称：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" required="" id="formTitle">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-3">
+                    <button class="btn btn-primary" type="submit">
+                        提交</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </section>
+    <!-- Mainly scripts -->
+    <script src="../../Scripts/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.jBox-2.3.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <!-- jQuery UI -->
+    <script src="js/jquery-ui-1.10.4.min.js"></script>
+    <!-- From Builder -->
+    <script src="tools/form-builder/beautifyhtml.js"></script>
+    <script>
+        $(document).ready(function () {
+            setup_draggable();
+            $("#n-columns").on("change", function () {
+                var v = $(this).val();
+                if (v === "1") {
+                    var $col = $('.form-body .col-md-12').toggle(true);
+                    $('.form-body .col-md-6 .draggable').each(function (i, el) {
+                        $(this).remove().appendTo($col);
+                    })
+                    $('.form-body .col-md-6').toggle(false);
+                } else {
+                    var $col = $('.form-body .col-md-6').toggle(true);
+                    $(".form-body .col-md-12 .draggable").each(function (i, el) {
+                        $(this).remove().appendTo(i % 2 ? $col[1] : $col[0]);
+                    });
+                    $('.form-body .col-md-12').toggle(false);
+                }
+            });
+
+            $("#copy-to-clipboard").on("click", function () {
+                var $copy = $(".form-body").clone().appendTo(document.body);
+                $copy.find(".tools, :hidden").remove();
+                $.each(["draggable", "droppable", "sortable", "dropped", "ui-sortable", "ui-draggable", "ui-droppable", "form-body"], function (i, c) {
+                    $copy.find("." + c).removeClass(c).removeAttr("style");
+                })
+
+                var html = html_beautify($copy.html());
+                var $controls = $(html).find(".form-group");
+                var jsonArr = [];
+                for (var i = 0; i < $controls.length; i++) {
+                    var $cntrChildren = $($controls[i]).children();
+                    var $name = $($cntrChildren[0]).attr("name");
+                    var $field = $($cntrChildren[0]).attr("field");
+                    var $required = $($cntrChildren[0]).attr("required");
+                    var $remark = $($cntrChildren[0]).attr("remark");
+                    var $sort = $($cntrChildren[0]).attr("sort");
+                    var $cntrhtml = $($cntrChildren[1]).html();
+                    if ($($cntrChildren[1]).children()[0].nodeName == "SELECT") {
+                        $cntrhtml = $("[datatype='selected']").parent().html();
+                    }
+                    if ($name == undefined || $name == "") {
+                        $.jBox.tip("属性名称不能为空");
+                        $copy.remove();
+                        return;
+                    }
+                    if ($field == undefined || $field == "") {
+                        $.jBox.error("属性字段不能为空");
+                        $copy.remove();
+                        return;
+                    }
+                    jsonArr.push({ name: $name, field: $field, required: $required, remark: $remark, sort: $sort, html: $cntrhtml })
+                }
+                if (jsonArr.length == 0) {
+                    $.jBox.tip("请从左侧拖动组件至右侧进行表单设计！");
+                    $copy.remove();
+                    return false;
+                }
+                var html = $("#Div1").html();
+                var $modal = get_modal(html).modal("show");
+                $modal.find(".btn-primary").click(function (ev) {
+                    var formTitle = $modal.find("#formTitle").val();
+                    var columns = $("#n-columns option:selected").val();
+                    //保存表单信息
+                    $.ajax({
+                        type: "post",
+                        async: false,
+                        url: "Handler1.ashx?type=save&formTitle=" + encodeURI(formTitle) + "&columns=" + columns,
+                        data: "data=" + JSON.stringify(jsonArr),
+                        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                        dataType: "text",
+                        success: function (data) {
+                            $.jBox.tip(data);
+                            $modal.modal("hide");
+                        }
+                    });
+                    return false;
+                });
+                return false;
+            })
+
+
+        });
+        //数组是否有重复元素
+        function isRepeat(arr) {
+            var hash = {};
+            for (var i in arr) {
+                if (hash[arr[i]]) {
+                    return true;
+                }
+                hash[arr[i]] = true;
+            }
+            return false;
+        }
+        //数组中是否存在一个元素
+        Array.prototype.Contains = function (element) {
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] == element) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        //校验是否为字母
+        function isLetter(value) {
+            var Regx = /^[A-Za-z]*$/;
+            if (Regx.test(value)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+        //校验是否为数字
+        function isDigit(value) {
+            var Regx = /^[0-9]*$/;
+            if (Regx.test(value)) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+
+        //初始化拖拽
+        var setup_draggable = function () {
+            $(".draggable").draggable({
+                appendTo: "body",
+                helper: "clone"
+            });
+            $(".droppable").droppable({
+                accept: ".draggable",
+                helper: "clone",
+                hoverClass: "droppable-active",
+                drop: function (event, ui) {
+                    $(".empty-form").remove();
+                    var $orig = $(ui.draggable)
+                    if (!$(ui.draggable).hasClass("dropped")) {
+                        var $el = $orig
+                            .clone()
+                            .addClass("dropped")
+                            .css({
+                                "position": "static",
+                                "left": null,
+                                "right": null
+                            })
+                            .appendTo(this);
+
+                        // update id
+                        var id = $orig.find(":input").attr("id");
+
+                        if (id) {
+                            id = id.split("-").slice(0, -1).join("-") + "-" + (parseInt(id.split("-").slice(-1)[0]) + 1)
+
+                            $orig.find(":input").attr("id", id);
+                            $orig.find("label").attr("for", id);
+                        }
+
+                        var RadioCheckboxOption = "";
+                        var $chd = $($el.children()[1]).children();
+                        if ($chd.length > 1) {
+                            if ($chd.attr("class") == "radio-inline") {
+                                RadioCheckboxOption = '<a class="reset-link">设置选项</a>|';
+                            }
+                            else {
+                                RadioCheckboxOption = '<a class="reset-link">设置选项</a>|';
+                            }
+                        } else {
+                            if ($chd[0].nodeName == "SELECT") {
+                                RadioCheckboxOption = '<a class="reset-link">设置选项</a>|';
+                            }
+                        }
+
+                        // tools
+                        $('<p class="tools col-sm-12 col-sm-offset-3">\
+						<a class="edit-link">设置属性<a> | \
+                        ' + RadioCheckboxOption + '\
+						<a class="remove-link">移除</a></p>').appendTo($el);
+                    } else {
+                        if ($(this)[0] != $orig.parent()[0]) {
+                            var $el = $orig
+                                .clone()
+                                .css({
+                                    "position": "static",
+                                    "left": null,
+                                    "right": null
+                                })
+                                .appendTo(this);
+                            $orig.remove();
+                        }
+                    }
+                }
+            }).sortable();
+
+        }
+
+        var get_modal = function (content) {
+            var modal = $('<div class="modal" style="overflow: auto;" tabindex="-1">\
+			<div class="modal-dialog">\
+				<div class="modal-content">\
+					<div class="modal-header">\
+						<a type="button" class="close"\
+							data-dismiss="modal" aria-hidden="true">&times;</a>\
+						<h4 class="modal-title">属性设置</h4>\
+					</div>\
+					<div class="modal-body ui-front" style="padding:0;">\
+						' + content + '\
+					</div>\
+				</div>\
+			</div>\
+			</div>').appendTo(document.body);
+
+            return modal;
+        };
+        //编辑
+        $(document).on("click", ".edit-link", function (ev) {
+            var $el = $(this).parent().parent();
+            var $col1 = $el.find(".control-label");
+            var $col2 = $el.find(".col-sm-9");
+            var $el_copy = $el.clone();
+            var index = $col2.parent().index();
+
+
+            var $edit_btn = $el_copy.find(".edit-link").parent().remove();
+            var content = $("#attSetDiv").html();
+            var $modal = get_modal(html_beautify(content)).modal("show");
+
+            $modal.find("#name").val($col1.attr("name"));
+            $modal.find("#field").val($col1.attr("field"));
+            $modal.find("#required").val($col1.attr("required"));
+            $modal.find("#remark").val($col1.attr("remark"));
+            $modal.find("#sort").val($col1.attr("sort"));
+
+
+            $modal.find(":input:first").focus();
+            $modal.find(".btn-primary").click(function (ev2) {
+                var name = $modal.find("#name").val();
+                var field = $modal.find("#field").val();
+                var required = $modal.find("#required").val();
+                var remark = $modal.find("#remark").val();
+                var sort = $modal.find("#sort").val();
+
+                if ($.trim(name).length == 0 || name == undefined || name == null) { $modal.find("#name").focus().val("请填写"); return false; }
+                if ($.trim(field).length == 0 || field == undefined || field == null) { $modal.find("#field").focus().val("请填写"); return false; }
+                if ($.trim(sort).length == 0 || sort == undefined || sort == null) { $modal.find("#sort").focus().val("请填写"); return false; }
+                if (!isLetter(field)) {
+                    $modal.find("#field").focus().val("填写字母组合");
+                    return false;
+                }
+                if (!isDigit(sort)) {
+                    $modal.find("#sort").focus().val("填写数字");
+                    return false;
+                }
+                $col1.html(name).attr("name", name).attr("field", field).attr("required", required).attr("remark", remark).attr("sort", sort);
+                $modal.modal("hide");
+                return false;
+            });
+        });
+        //设置选项
+        $(document).on("click", ".reset-link", function (ev) {
+            var content = '<div class="ibox-content">\
+            <form class="form-horizontal m-t" id="commentForm" novalidate="novalidate">\
+            <div class="form-group">\
+                <label class="col-sm-3 control-label">\
+                    选项集合：</label>\
+                <div class="col-sm-8">\
+                    <input type="text" class="form-control" required="" dataoption="option"> 选项以“,”隔开\
+                </div>\
+            </div>\
+            <div class="form-group">\
+                <label class="col-sm-3 control-label">\
+                    默认选中：</label>\
+                <div class="col-sm-8">\
+                    <input type="text" class="form-control" required="" dataoption="default"> \
+                </div>\
+            </div>\
+             <div class="form-group">\
+                <div class="col-sm-4 col-sm-offset-3">\
+                    <button class="btn btn-primary" type="submit">\
+                        提交</button>\
+                </div>\
+            </div>';
+            var $container = $(ev.target.parentNode.previousElementSibling);
+            var $modal = get_modal(html_beautify(content)).modal("show");
+            $modal.find(":input:first").focus();
+            if ($container.children()[0].nodeName != "SELECT") {
+                var $class = $container.children().attr("class");
+                var $type = $class.split("-")[0];
+                $modal.find(".btn-primary").click(function (ev2) {
+                    var html = "";
+                    var options = $modal.find("input[dataoption='option']").val().split(',');
+                    var defaultoption = $modal.find("input[dataoption='default']").val().split(',');
+                    if (!isRepeat(options)) {
+                        for (var i = 0; i < options.length; i++) {
+                            if (defaultoption.Contains(options[i])) {
+                                html += '<label class="' + $class + '"><input type="' + $type + '"  checked="checked"  value="option' + i + '" id="options' + $type + i + '" name="options' + $type + '">' + options[i] + '</label>';
+                            } else {
+                                html += '<label class="' + $class + '"><input type="' + $type + '"   value="option' + i + '" id="options' + $type + i + '" name="options' + $type + '">' + options[i] + '</label>';
+                            }
+                        }
+                        $container.html(html);
+                    } else {
+                        $.jBox.error("选项出现重复");
+                        return false;
+                    }
+                    $modal.modal("hide");
+                    return false;
+                })
+            } else {
+                var $sel = $container.children();
+                $modal.find(".btn-primary").click(function (ev2) {
+                    var html = "";
+                    var options = $modal.find("input[dataoption='option']").val().split(',');
+                    if (!isRepeat(options)) {
+                        //清空select option
+                        //                        $($sel[0].options).each(function () {
+                        //                            $(this).remove();
+                        //                        });
+                        $sel.find("option").remove();
+                        //添加新的option
+                        for (var i = 0; i < options.length; i++) {
+                            var op = $("<option data-value='" + options[i] + "'>" + options[i] + "</option>");
+                            op.appendTo($($sel[0]));
+                        }
+                        $($sel[0]).attr("datatype", "selected");
+                        //$sel[0].options = initop[0];
+                    } else {
+                        $.jBox.error("选项出现重复");
+                        return false;
+                    }
+                    $modal.modal("hide");
+                    return false;
+                })
+            }
+        });
+        //移除
+        $(document).on("click", ".remove-link", function (ev) {
+            $(this).parent().parent().remove();
+        });
+    </script>
+</body>
+</html>
